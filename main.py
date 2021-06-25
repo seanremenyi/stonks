@@ -1,4 +1,4 @@
-
+import requests
 
 STOCK_NAME = "TSLA"
 COMPANY_NAME = "Tesla Inc"
