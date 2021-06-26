@@ -23,6 +23,19 @@ yesterdays_data = data_list[0]
 yesterdays_closing_price = yesterdays_data["4. close"]
 print(yesterdays_closing_price)
 
+day_before_yesterday_data = data_list[1]
+day_before_yesterday_closing_price = day_before_yesterday_data["4. close"]
+print(day_before_yesterday_closing_price)
+
+difference = abs(float(yesterdays_closing_price) - float(day_before_yesterday_closing_price))
+print(difference)
+
+diff_percent = (difference / float(yesterdays_closing_price)) * 100
+print(diff_percent)
+
+if diff_percent > 1:
+    print("get_news")
+
 """
 TSLA: 🔺2%
 Headline: Were Hedge Funds Right About Piling Into Tesla Inc. (TSLA)?. 
