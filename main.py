@@ -1,4 +1,5 @@
 import requests
+import os
 
 STOCK_NAME = "TSLA"
 COMPANY_NAME = "Tesla Inc"
@@ -16,8 +17,11 @@ stock_params = {
 }
 
 response = requests.get(STOCK_ENDPOINT, params=stock_params)
-print(response)
-
+data = response.json()["Time Series (Daily)"]
+data_list = [value for (key, value) in data.items()]
+yesterdays_data = data_list[0]
+yesterdays_closing_price = yesterdays_data["4. close"]
+print(yesterdays_closing_price)
 
 """
 TSLA: 🔺2%
