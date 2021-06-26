@@ -4,7 +4,7 @@ import os
 STOCK_NAME = "TSLA"
 COMPANY_NAME = "Tesla Inc"
 
-STOCK_API_KEY=""
+
 
 STOCK_ENDPOINT = "https://www.alphavantage.co/query"
 NEWS_ENDPOINT = "https://newsapi.org/v2/everything"
@@ -34,8 +34,16 @@ diff_percent = (difference / float(yesterdays_closing_price)) * 100
 print(diff_percent)
 
 if diff_percent > 1:
-    print("get_news")
+    news_params = {
+        "apiKey": NEWS_API_KEY,
+        "qInTitle": COMPANY_NAME,
+    }
+    news_reponse = requests.get(NEWS_ENDPOINT, params=news_params)
+    articles = news_reponse.json()["articles"]
+    print(articles)
 
+    three_articles = articles[:3]
+    print(three_articles)
 """
 TSLA: 🔺2%
 Headline: Were Hedge Funds Right About Piling Into Tesla Inc. (TSLA)?. 
